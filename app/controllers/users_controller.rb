@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_no_user!, only: [:new, :create]
+  before_action :require_correct_user!, only: [:show]
 
   def new
     @user = User.new
