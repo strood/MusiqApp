@@ -20,14 +20,20 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   before_validation :ensure_session_token
 
-  def self.find_by_credentials(email, password)
+  def self.email_taken?(email)
     @user = User.find_by(email: email)
-    raise "Invalid Email" unless @user
-    if @user.is_password?(password)
-      return @user
+    if @user
+      return true
     else
-      raise "Invalid Password, please try again"
+      return false
     end
+  end
+
+  def self.find_by_credentials(email, password)
+    # Note: Pass up nil from here, handle error msg setting in cont
+    @user = User.find_by(email: email)
+    return nil if @user.nil?
+    @user.is_password?(password) ? @user : nil
   end
 
   def password=(password)

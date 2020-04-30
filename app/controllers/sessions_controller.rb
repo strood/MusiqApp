@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
     )
 
     if user.nil?
-      flash.now[:errors] = ["Invalid Credentials"]
+      flash.now[:errors] = [ "Invalid Credentials, please try again!" ]
       render :new
     else
 

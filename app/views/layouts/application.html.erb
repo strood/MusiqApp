@@ -4,11 +4,17 @@
     <title>Musiq</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://fonts.googleapis.com/css2?family=Sonsie+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sonsie+One&family=Varela+Round&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <div class="main-content">
+    <h1 class="main-logo">Musiq</h1>
+    <%= yield :nav %>
+    <%= yield :page_header %>
     <%= yield %>
+    </div>
   </body>
 </html>

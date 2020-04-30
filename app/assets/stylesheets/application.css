@@ -13,7 +13,11 @@
  *= require_tree .
  *= require_self
  */
- html, body, section, article, h1, h2, p, nav, main, figure {
+
+ /* Basic Reset of everythign I usually use */
+ html, body, section, article, h1, h2,
+ h3, p, nav, main, figure, div, a,
+ section, input, label, header, ul, li {
    margin: 0;
    border: 0;
    padding: 0;
@@ -22,6 +26,75 @@
    text-decoration: inherit;
    color: inherit;
    background: transparent;
-   font-family: 'Amatic SC', cursive;
+   font-family: 'Varela Round', sans-serif;
    font-size: 30px;
+   color: rgb(255, 234, 236);
+ }
+
+ body {
+   background-color: rgb(23, 29, 76);
+ }
+
+ input[type=text],
+ input[type=password]  {
+   border-bottom: solid 2px rgb(25, 196, 145);
+   width: 60%;
+ }
+
+
+ .button {
+   background-color: rgb(243, 154, 157);
+   border-radius: 5px;
+   padding: 10px;
+   font-size: 20px;
+ }
+
+ .error-ul {
+   padding-top: 30px;
+ }
+
+ /* Main Content Div */
+ /* This will sit with in body, holding all my stuff */
+
+ .main-content {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 30px;
+   margin: auto;
+   width: 880px;
+   min-height: 100vh;
+   border-left: solid rgb(25, 196, 145);
+   border-right: solid rgb(25, 196, 145);
+   background-color: rgb(15, 129, 87);
+ }
+
+ .main-logo {
+   color: rgb(109, 177, 191);
+   font-family: 'Sonsie One', cursive;
+   font-size: 100px;
+ }
+
+ .page-header {
+   font-family: 'Sonsie One', cursive;
+   color: rgb(185, 108, 110);
+   padding: 30px;
+ }
+
+ /* Below will be less consistent things on various pages */
+
+ .user-details-form {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+   padding: 30px;
+ }
+
+ .user-details-form p {
+   display: flex;
+   justify-content: space-between;
+   padding: 10px;
+   width: 70%;
+
  }
