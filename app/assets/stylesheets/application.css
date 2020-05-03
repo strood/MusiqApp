@@ -75,6 +75,10 @@
    font-size: 100px;
  }
 
+ .main-nav {
+   display: flex;
+ }
+
  .page-header {
    font-family: 'Sonsie One', cursive;
    color: rgb(185, 108, 110);
