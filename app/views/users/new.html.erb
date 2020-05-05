@@ -4,7 +4,8 @@
 
 <a class="button" href="<%= new_session_url %>">Go to Sign-in</a>
 
-  <%= render "shared/errors" %>
+<%= render "shared/errors" %>
+<%= render "shared/messages" %>
 
 <form class="user-details-form" action="<%= users_url %>" method="post">
     <%= auth_token %>

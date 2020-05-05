@@ -17,27 +17,24 @@ class UsersController < ApplicationController
 
   def create
 
-
     @user = User.new(user_params)
 
-    # Cant get pass and email validaiton to work before sending to db,
-    # try to get it working later if i feel. 
+    if User.email_taken?(@user.email)
+      flash[:errors] = ["Email taken, sign in, or try another."]
+      redirect_to new_user_url
 
-    # if User.email_taken?(@user.email)
-    #   flash.now[:errors] = ["Email taken, sign in, or try another."]
-    #   render :new
-    # elsif !User.pass_valid?(params[:user][:password])
-    #   flash.now[:errors] = ["Password invalid, please try another."]
-    #   render :new
-    # end
-
-    if @user.save!
+    elsif !User.pass_valid?(params[:user][:password])
+      flash[:errors] = ["Invalid password, please try another - (Must be at least 6 characters)"]
+      redirect_to new_user_url
+    elsif @user.save!
       login_user!(@user)
-      redirect_to user_url(@user)
+      flash[:notice] = ["Welcome, #{ @user.email }"]
+      redirect_to bands_url
     else
-      flash.now[:errors] = ["Invalid Credentials, pelase try again!"]
+      flash[:errors] = ["Invalid Credentials, pelase try again!"]
       redirect_to new_user_url
     end
+
 
   end
 

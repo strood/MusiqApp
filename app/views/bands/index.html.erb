@@ -1,0 +1,31 @@
+<% content_for :nav do %>
+  <%= render "shared/nav" %>
+<% end %>
+
+<%= render "shared/errors" %>
+<%= render "shared/messages" %>
+
+<% content_for :page_header do %>
+  <h2 class="page-header">Bands</h2>
+<% end %>
+
+<section class="display-section">
+  <ul class="display-list">
+    <% @bands.each do |band| %>
+    <li>
+    <a href="<%= band_url(band) %>">
+        <p><%= band.name %></p>
+    </a>
+  </li>
+    <% end %>
+  </ul>
+</section>
+
+
+
+<% content_for :page_footer do %>
+  <h3 class="page-sub-header">Links</h3>
+  <div class="footer-div">
+    <a class="button" href="<%= new_band_url %>">New Band</a>
+  </div>
+<% end %>

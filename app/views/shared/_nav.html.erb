@@ -1,14 +1,24 @@
 <nav class="main-nav">
-  <form class="" action="index.html" method="post">
-    <p>
-      <input class="button" type="submit" value="Go Home">
-    </p>
-  </form>
+  <div class="nav-div">
+    <form class="" action="<%= bands_url %>" method="GET">
+      <p>
+        <input class="button" type="submit" value="Go Home">
+      </p>
 
-  <p>Welcome: <%= current_user.email %></p>
-  <form class="" action="index.html" method="post">
-    <p>
-      <input class="button" type="submit" value="Log Out">
-    </p>
-  </form>
+    </form>
+  </div>
+
+  <div class="nav-div">
+
+  <p> Welcome: <%= current_user.email %></p>
+
+    <form class="" action="<%= session_url(session.id) %>" method="post">
+      <input type="hidden" name="_method" value="DELETE">
+      <%= auth_token %>
+      <p>
+        <input class="button" type="submit" value="Log Out">
+      </p>
+    </form>
+  </div>
+
 </nav>

@@ -1,0 +1,12 @@
+<% content_for :nav  do %>
+  <%= render "shared/nav" %>
+<% end %>
+
+<% content_for :page_header do %>
+  <h2 class="page-header">Edit: <%= current_band.name %></h2>
+<% end %>
+
+<%= render "shared/errors" %>
+<%= render "shared/messages" %>
+
+<%= render "form", band: @band %>

@@ -1,0 +1,28 @@
+<% content_for :nav do %>
+  <%= render "shared/nav" %>
+<% end %>
+
+<%= render "shared/errors" %>
+<%= render "shared/messages" %>
+
+<% content_for :page_header do %>
+  <h2 class="page-header"><%= current_album.title %></h2>
+<% end %>
+
+
+ <p>Will add tracks here once made</p>
+
+
+<% content_for :page_footer do %>
+  <h3 class="page-sub-header">Links</h3>
+  <div class="footer-div">
+    <a class="button" href="#">New Track</a>
+    <a class="button" href="<%= edit_album_url %>">Edit Album</a>
+    <form action="<%= album_url %>" method="post">
+        <%= auth_token %>
+       <input type="hidden" name="_method" value="DELETE">
+       <input class="button" type="submit" value="Destroy Album">
+    </form>
+    <a class="button" href="<%= band_url(current_album.band) %>">Back to <%= current_album.band.name %></a>
+  </div>
+<% end %>

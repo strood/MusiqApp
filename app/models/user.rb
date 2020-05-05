@@ -20,6 +20,14 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   before_validation :ensure_session_token
 
+
+  def self.find_by_credentials(email, password)
+    # Note: Pass up nil from here, handle error msg setting in cont
+    @user = User.find_by(email: email)
+    return nil if @user.nil?
+    @user.is_password?(password) ? @user : nil
+  end
+
   def self.email_taken?(email)
     @user = User.find_by(email: email)
     if @user
@@ -29,11 +37,8 @@ class User < ApplicationRecord
     end
   end
 
-  def self.find_by_credentials(email, password)
-    # Note: Pass up nil from here, handle error msg setting in cont
-    @user = User.find_by(email: email)
-    return nil if @user.nil?
-    @user.is_password?(password) ? @user : nil
+  def self.pass_valid?(password)
+    password.length >= 6 ? true : false;
   end
 
   def password=(password)

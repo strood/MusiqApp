@@ -15,14 +15,15 @@ class SessionsController < ApplicationController
     )
 
     if user.nil?
-      flash.now[:errors] = [ "Invalid Credentials, please try again!" ]
+      flash[:errors] = [ "Invalid Credentials, please try again!" ]
       render :new
     else
 
       # starts a session for user if found and pass matches above
       login_user!(user)
       # temp redirect for now
-      redirect_to user_url(user)
+      flash[:notice] = ["Login Successful"]
+      redirect_to bands_url
     end
 
   end

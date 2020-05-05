@@ -1,14 +1,26 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  # skip_before_action :verify_authenticity_token
 
+  helper_method :current_band
   helper_method :current_user
+  helper_method :current_album
   helper_method :logged_in?
   helper_method :login_user!
 
+  def current_band
+    return nil unless params[:id]
+    @current_band ||= Band.find(params[:id])
+  end
 
   def current_user
     return nil unless session[:session_token]
     @current_user ||= User.find_by(session_token: session[:session_token])
+  end
+
+  def current_album
+    return nil unless params[:id]
+    @current_album ||= Album.find(params[:id])
   end
 
   def logged_in?

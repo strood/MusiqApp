@@ -1,5 +1,4 @@
 
-<%= render "shared/errors" %>
 
 <% content_for :nav do %>
   <%= render "shared/nav" %>
@@ -11,3 +10,6 @@
   <input type="hidden" name="_method" value="DELETE">
 <input class="button" type="submit" value="Log Out">
 </form>
+
+<%= render "shared/errors" %>
+<%= render "shared/messages" %>

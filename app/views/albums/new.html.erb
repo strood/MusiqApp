@@ -1,0 +1,16 @@
+<% content_for :nav  do %>
+  <%= render "shared/nav" %>
+<% end %>
+
+<% this_band = Band.find(params[:band_id]) %>
+<% @album = Album.new %>
+
+<%= render "shared/errors" %>
+<%= render "shared/messages" %>
+
+
+<% content_for :page_header do %>
+  <h2 class="page-header">New <%= this_band.name %> Album!</h2>
+<% end %>
+
+<%= render "form", album: @album %>
