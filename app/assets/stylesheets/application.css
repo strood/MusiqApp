@@ -102,6 +102,8 @@
 
 .display-list a {
   display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgb(201, 152, 38);
   height: 100px;
   width: 200px;
@@ -196,6 +198,7 @@
 
 .band-form p {
   display: flex;
+  padding: 10px;
   justify-content: space-between;
   padding: 10px;
   width: 70%;

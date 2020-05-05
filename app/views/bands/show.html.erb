@@ -19,9 +19,12 @@
     <a href="<%= album_url(album) %>">
         <p><%= album.title %></p>
     </a>
-  </li>
+    </li>
     <% end %>
   </ul>
+  <% if current_band.albums.empty? %>
+  <p>No albums here yet!</p>
+  <% end %>
 </section>
 
 
