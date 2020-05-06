@@ -1,9 +1,11 @@
 <h3 class="page-sub-header">New Note</h3>
-<form class="track-form" action="<%= notes_url %>" method="post">
+<form class="note-form" action="<%= notes_url %>" method="post">
   <input type="hidden" name="note[track]" value="<%= current_track.id %>">
   <%= auth_token %>
   <p>
-  <label for="note_content">Content</label>
+    <label for="note_content">Content: </label>
+  </p>
+  <p>
   <textarea id="note_content" name="note[content]" rows="8" cols="60"></textarea>
   </p>
   <p>

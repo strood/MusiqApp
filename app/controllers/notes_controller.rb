@@ -1,4 +1,7 @@
 class NotesController < ApplicationController
+  before_action :require_user!
+
+
   def create
     @note = Note.new(note_params)
 
@@ -17,7 +20,8 @@ class NotesController < ApplicationController
   def destroy
     @note = Note.find(params[:id])
 
-    if @note
+
+    if @note && current_user.id == @note.user_id
 
       if @note.destroy
         flash[:notice] = ["Deleted note"]
@@ -33,6 +37,7 @@ class NotesController < ApplicationController
   end
 
   private
+
 
   def note_params
     params.require(:note).permit(:content)

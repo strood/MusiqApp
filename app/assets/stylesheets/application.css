@@ -241,3 +241,29 @@
   flex-direction: column;
   align-items: center;
 }
+
+/* NOTES */
+
+.note-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.note-form p {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.notes-list {
+  display: flex;
+  list-style-type: none;
+  flex-direction: column;
+
+}
+
+.note {
+  font-size: 20px;
+}
