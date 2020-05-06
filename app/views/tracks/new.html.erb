@@ -1,0 +1,15 @@
+<% content_for :nav  do %>
+  <%= render "shared/nav" %>
+<% end %>
+
+<% this_album = Album.find(params[:album_id]) %>
+<% @track = Track.new %>
+
+<%= render "shared/errors" %>
+<%= render "shared/messages" %>
+
+<% content_for :page_header do %>
+  <h2 class="page-header">New <%= this_album.title %> Track!</h2>
+<% end %>
+
+<%= render "form", track: @track %>

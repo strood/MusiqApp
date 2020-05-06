@@ -9,20 +9,34 @@
   <h2 class="page-header"><%= current_album.title %></h2>
 <% end %>
 
+<h3 class="page-sub-header">Tracks</h3>
 
- <p>Will add tracks here once made</p>
+ <section class="display-section">
+   <ul class="display-list">
+     <% current_album.tracks.each do |track| %>
+     <li>
+       <a href="<%= track_url(track) %>">
+         <p><%= track.name %></p>
+       </a>
+     </li>
+     <% end %>
+   </ul>
+   <% if current_album.tracks.empty? %>
+    <p>No tracks added yet!</p>
+   <% end %>
+ </section>
 
 
 <% content_for :page_footer do %>
   <h3 class="page-sub-header">Links</h3>
   <div class="footer-div">
-    <a class="button" href="#">New Track</a>
+    <a class="button" href="<%= new_album_track_url(current_album) %>">New Track</a>
     <a class="button" href="<%= edit_album_url %>">Edit Album</a>
     <form action="<%= album_url %>" method="post">
         <%= auth_token %>
        <input type="hidden" name="_method" value="DELETE">
        <input class="button" type="submit" value="Destroy Album">
     </form>
-    <a class="button" href="<%= band_url(current_album.band) %>">Back to <%= current_album.band.name %></a>
+    <a class="button" href="<%= band_url(current_album.band) %>">Back to: <%= current_album.band.name %></a>
   </div>
 <% end %>

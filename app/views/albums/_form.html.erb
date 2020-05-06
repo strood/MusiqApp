@@ -11,7 +11,7 @@
 
     <p>
       <label for="album_title">Title:</label>
-      <input type="text" name="album[title]" id="album_title" value="<%= album.title %>">
+      <input id="album_title" type="text" name="album[title]" value="<%= album.title %>">
     </p>
 
     <p>
@@ -40,7 +40,8 @@
             name="album[live]"
             value="Studio"
             id="album-live-f
-            <%= album.live == false ? "checked" : "" %>">
+            <%= album.live == false ? "checked" : "" %>
+            <%= album.live == nil ? "checked" : "" %>">
     </p>
 
 

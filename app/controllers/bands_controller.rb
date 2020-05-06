@@ -53,8 +53,7 @@ class BandsController < ApplicationController
       flash[:notice] = ["Successfully Updated #{ @band.name }"]
       redirect_to band_url(@band)
     else
-      flash.now[:errors] = ["Unable to update band"]
-      # WIll change this redirect/render
+      flash[:errors] = ["Unable to update band"]
       redirect_to band_url(@band)
     end
 

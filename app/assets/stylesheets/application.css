@@ -36,7 +36,8 @@
  }
 
  input[type=text],
- input[type=password]  {
+ input[type=password],
+ input[type=number]  {
    border-bottom: solid 2px rgb(25, 196, 145);
    width: 60%;
  }
@@ -200,6 +201,43 @@
   display: flex;
   padding: 10px;
   justify-content: space-between;
-  padding: 10px;
   width: 70%;
+}
+
+/* ALBUMS */
+
+.album-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.album-form p {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  width: 70%;
+}
+
+/* TRACKS */
+
+.track-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.track-form p {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+
+}
+
+.lyric-display-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

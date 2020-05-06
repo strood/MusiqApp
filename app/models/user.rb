@@ -20,6 +20,9 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   before_validation :ensure_session_token
 
+  has_many :notes,
+    dependent: :destroy
+
 
   def self.find_by_credentials(email, password)
     # Note: Pass up nil from here, handle error msg setting in cont
