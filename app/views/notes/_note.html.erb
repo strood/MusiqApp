@@ -3,8 +3,8 @@
 
 <% track.notes.each do |note| %>
   <li class="note">
-    <%= note.content %>
-    - Author:<%= note.user.email %>
+    <%= h(note.content) %>
+    - Author:<%= h(note.user.email[0..30]) %><%= note.user.email.length >= 30 ? "..." : "" %>
   </li>
   <% if current_user.id == note.user_id %>
     <form action="<%= note_url(note) %>" method="post">

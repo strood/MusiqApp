@@ -13,7 +13,7 @@ class NotesController < ApplicationController
       redirect_to track_url(@note.track)
     else
       flash[:errors] = ["Error creating note"]
-      redirect_to track_url(@notes.track)
+      redirect_to bands_url
     end
   end
 

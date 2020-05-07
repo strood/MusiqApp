@@ -1,7 +1,7 @@
 <% if flash[:notice] %>
   <ul class="notice-ul">
     <% flash[:notice].each do |notice| %>
-    <li><%= notice %></li>
+    <li><%= h(notice[0..60]) %><%= notice.length >= 60 ? "..." : "" %></li>
     <% end %>
   </ul>
 <% end %>

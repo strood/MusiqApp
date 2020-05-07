@@ -6,7 +6,7 @@
 <%= render "shared/messages" %>
 
 <% content_for :page_header do %>
-  <h2 class="page-header">Edit <%= @album.title %> Album!</h2>
+  <h2 class="page-header">Edit <%= h(@album.title[0..40]) %> <%= @album.title.length >=40 ? "..." : "" %>Album!</h2>
 <% end %>
 
 

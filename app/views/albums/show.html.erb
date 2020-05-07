@@ -6,7 +6,7 @@
 <%= render "shared/messages" %>
 
 <% content_for :page_header do %>
-  <h2 class="page-header"><%= current_album.title %></h2>
+  <h2 class="page-header"><%= h(current_album.title[0..40]) %><%= current_album.title.length >=40 ? "..." : "" %></h2>
 <% end %>
 
 <h3 class="page-sub-header">Tracks</h3>
@@ -16,7 +16,7 @@
      <% current_album.tracks.each do |track| %>
      <li>
        <a href="<%= track_url(track) %>">
-         <p><%= track.name %></p>
+         <p><%= h(track.name[0..40]) %><%= track.name.length >=40 ? "..." : "" %></p>
        </a>
      </li>
      <% end %>
@@ -37,6 +37,6 @@
        <input type="hidden" name="_method" value="DELETE">
        <input class="button" type="submit" value="Destroy Album">
     </form>
-    <a class="button" href="<%= band_url(current_album.band) %>">Back to: <%= current_album.band.name %></a>
+    <a class="button" href="<%= band_url(current_album.band) %>">Back to: <%= h(current_album.band.name[0..40]) %><%= current_album.band.name.length >=40 ? "..." : "" %></a>
   </div>
 <% end %>

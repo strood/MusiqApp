@@ -14,7 +14,7 @@
     <% @bands.each do |band| %>
     <li>
     <a href="<%= band_url(band) %>">
-        <p><%= band.name %></p>
+        <p><%= h(band.name[0..40]) %><%= band.name.length >=40 ? "..." : "" %></p>
     </a>
   </li>
     <% end %>

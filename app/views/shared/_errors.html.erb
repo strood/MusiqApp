@@ -1,7 +1,7 @@
 <% if flash[:errors] %>
   <ul class="error-ul">
     <% flash[:errors].each do |error| %>
-    <li><%= error %></li>
+    <li><%= h(error[0..60]) %><%= error.length >= 60 ? "..." : "" %></li>
     <% end %>
   </ul>
 <% end %>

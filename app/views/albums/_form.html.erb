@@ -22,7 +22,7 @@
           <option
             <%= band == this_band ? "selected" : "" %>
             value="<%= band.id %>">
-            <%= band.name %>
+            <%= h(band.name[0..30]) %> <%= band.name.length >=40 ? "..." : "" %>
           </option>
         <% end %>
       </select>

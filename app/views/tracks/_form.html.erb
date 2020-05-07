@@ -20,7 +20,7 @@
         <option
         <%= album == this_album ? "selected" : "" %>
         value="<%= album.id %>">
-        <%= album.title %>
+        <%= h(album.title[0..40]) %><%= album.title.length >= 40 ? "..." : "" %>
       </option>
       <% end %>
     </select>
@@ -46,9 +46,10 @@
             id="track-bonus-t"
             <%= track.bonus == true ? "checked" : "" %>>
   </p>
-
   <p>
     <label for="track_lyrics">Lyrics:</label>
+  </p>
+  <p>
     <textarea id="track_lyrics" name="track[lyrics]" rows="8" cols="60"><%= track.lyrics %></textarea>
   </p>
 

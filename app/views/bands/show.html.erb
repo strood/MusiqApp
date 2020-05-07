@@ -7,7 +7,7 @@
 <%= render "shared/messages" %>
 
 <% content_for :page_header do %>
-  <h2 class="page-header"><%= current_band.name %></h2>
+  <h2 class="page-header"><%= h(current_band.name[0..40]) %><%= current_band.name.length >=40 ? "..." : "" %></h2>
 <% end %>
 
 <h3 class="page-sub-header">Albums</h3>
@@ -17,7 +17,7 @@
     <% current_band.albums.each do |album| %>
     <li>
     <a href="<%= album_url(album) %>">
-        <p><%= album.title %></p>
+        <p><%= h(album.title[0..40]) %><%= album.title.length >=40 ? "..." : "" %></p>
     </a>
     </li>
     <% end %>

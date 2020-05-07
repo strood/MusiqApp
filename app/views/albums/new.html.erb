@@ -10,7 +10,7 @@
 
 
 <% content_for :page_header do %>
-  <h2 class="page-header">New <%= this_band.name %> Album!</h2>
+  <h2 class="page-header">New <%= h(this_band.name[0..40]) %><%= this_band.name.length >=40 ? "..." : "" %> Album!</h2>
 <% end %>
 
 <%= render "form", album: @album %>

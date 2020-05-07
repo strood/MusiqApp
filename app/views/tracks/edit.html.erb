@@ -6,7 +6,7 @@
 <%= render "shared/messages" %>
 
 <% content_for :page_header do %>
-  <h2 class="page-header">Edit <%= @track.name %> Track!</h2>
+  <h2 class="page-header">Edit <%= h(@track.name[0..40]) %><%= @track.name.length >= 40 ? "..." : "" %> Track!</h2>
 <% end %>
 
 <%= render "form", track: @track %>

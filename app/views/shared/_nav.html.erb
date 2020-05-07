@@ -10,7 +10,7 @@
 
   <div class="nav-div">
 
-  <p> Welcome: <%= current_user.email %></p>
+  <p> Welcome: <%= h(current_user.email[0..35]) %><%= current_user.email.length >= 35 ? "..." : "" %></p>
 
     <form class="" action="<%= session_url(session.id) %>" method="post">
       <input type="hidden" name="_method" value="DELETE">

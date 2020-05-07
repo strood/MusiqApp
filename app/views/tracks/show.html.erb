@@ -6,11 +6,12 @@
 <%= render "shared/messages" %>
 
 <% content_for :page_header do %>
-  <h2 class="page-header"><%= current_track.name %></h2>
+  <h2 class="page-header"><%= h(current_track.name[0..40]) %><%= current_track.name.length >= 40 ? "..." : "" %></h2>
 <% end %>
+
 <section class="lyric-display-section">
 
-  <h4>&#119070; <%= current_track.lyrics %></h4>
+  <%= ugly_lyrics(current_track.lyrics) %>
 
   <%= render "notes/form", track: current_track %>
 
@@ -27,6 +28,6 @@
           <input type="hidden" name="_method" value="DELETE">
           <input class="button" type="submit" value="Destroy Track">
       </form>
-      <a class="button" href="<%= album_url(current_track.album) %>">Back to: <%= current_track.album.title %></a>
+      <a class="button" href="<%= album_url(current_track.album) %>">Back to: <%= h(current_track.album.title) %></a>
   </div>
 <% end %>

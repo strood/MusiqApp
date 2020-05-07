@@ -105,6 +105,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   background-color: rgb(201, 152, 38);
   height: 100px;
   width: 200px;
@@ -154,10 +155,13 @@
  }
 
  .page-header {
+   display: flex;
    font-family: 'Sonsie One', cursive;
    color: rgb(185, 108, 110);
    padding: 30px;
    font-size: 35px;
+   flex-wrap: wrap;
+   
  }
 
  .page-sub-header {
@@ -233,13 +237,17 @@
   display: flex;
   padding: 10px;
   justify-content: space-between;
-
+  width: 70%;
 }
 
 .lyric-display-section {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+pre {
+  font-size: 15px;
 }
 
 /* NOTES */
@@ -265,5 +273,9 @@
 }
 
 .note {
+  display: flex;
+  flex-wrap: wrap;
   font-size: 20px;
+  width: 70%;
+  align-self: center;
 }
