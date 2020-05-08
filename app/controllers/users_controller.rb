@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_no_user!, only: [:new, :create]
-  before_action :require_user!, only: [:show]
+  before_action :require_user!, only: [:show, :index]
   before_action :require_user_activated!, only: [:index, :show]
   before_action :require_user_admin!, only: [:index]
 

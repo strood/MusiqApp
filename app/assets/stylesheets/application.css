@@ -191,6 +191,24 @@
 
  }
 
+ /* ADMIN PAGE */
+
+ .admin-list-item {
+   display: flex;
+   align-items: center;
+   border: 1px solid red;
+   padding: 10px;
+   width: 80%;
+   justify-content: space-around;
+ }
+
+ .admin-list-item a {
+   display: flex;
+   width: 30px;
+   height: 20px;
+   justify-content: center;
+ }
+
 /* BANDS */
 
 .band-form {
@@ -269,30 +287,19 @@ pre {
   display: flex;
   list-style-type: none;
   flex-direction: column;
-
+  flex-wrap: nowrap;
 }
 
-.note {
+.note-li {
   display: flex;
-  flex-wrap: wrap;
   font-size: 20px;
+  justify-content: space-between;
+  padding: 10px;
   width: 70%;
   align-self: center;
+  /* border-bottom: 1px solid black; */
 }
 
-
-.admin-list-item {
-  display: flex;
-  align-items: center;
-  border: 1px solid red;
-  padding: 10px;
-  width: 80%;
-  justify-content: space-around;
-}
-
-.admin-list-item a {
-  display: flex;
-  width: 30px;
-  height: 20px;
-  justify-content: center;
+.note-li input {
+  margin-left: 10px;
 }

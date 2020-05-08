@@ -25,7 +25,13 @@
 
 <% content_for :page_footer do %>
   <h3 class="page-sub-header">Links</h3>
+  <% if current_user.admin == true %>
+    <div class="footer-div">
+      <a class="button" href="<%= new_band_url %>">New Band</a>
+    </div>
+  <% else %>
   <div class="footer-div">
-    <a class="button" href="<%= new_band_url %>">New Band</a>
+    <a class="button" href="<%= bands_url %>">Home</a>
   </div>
+  <% end %>
 <% end %>

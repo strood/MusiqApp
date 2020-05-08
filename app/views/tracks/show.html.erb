@@ -22,12 +22,15 @@
 <% content_for :page_footer do %>
   <h3 class="page-sub-header">Links</h3>
   <div class="footer-div">
+    <% if current_user.admin == true %>
       <a class="button" href="<%= edit_track_url(current_track) %>">Edit Track</a>
       <form action="<%= track_url %>" method="post">
         <%= auth_token %>
           <input type="hidden" name="_method" value="DELETE">
           <input class="button" type="submit" value="Destroy Track">
       </form>
+    <% end %>
       <a class="button" href="<%= album_url(current_track.album) %>">Back to: <%= h(current_track.album.title) %></a>
+      <a class="button" href="<%= bands_url %>">Back to All Bands</a>
   </div>
 <% end %>

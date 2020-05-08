@@ -2,16 +2,18 @@
 <ul class="notes-list">
 
 <% track.notes.each do |note| %>
-  <li class="note">
+  <li class="note-li">
     <%= h(note.content) %>
-    - Author:<%= h(note.user.email[0..30]) %><%= note.user.email.length >= 30 ? "..." : "" %>
-  </li>
+    - <%= h(note.user.email[0..30]) %><%= note.user.email.length >= 30 ? "..." : "" %>
   <% if current_user.id == note.user_id %>
+
     <form action="<%= note_url(note) %>" method="post">
         <input type="hidden" name="_method" value="DELETE">
         <%= auth_token %>
         <input class="button" type="submit" name="submit" value="Delete Note">
     </form>
+  </li>
+
   <% end %>
 <% end %>
 </ul>

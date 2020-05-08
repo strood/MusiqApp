@@ -1,7 +1,7 @@
 class TracksController < ApplicationController
   before_action :require_user!
   before_action :require_user_activated!
-
+  before_action :require_user_admin!, only: [:create, :new, :edit, :update, :destroy]
 
   def new
     @track = Track.new

@@ -30,13 +30,15 @@
 <% content_for :page_footer do %>
   <h3 class="page-sub-header">Links</h3>
   <div class="footer-div">
-    <a class="button" href="<%= new_album_track_url(current_album) %>">New Track</a>
-    <a class="button" href="<%= edit_album_url %>">Edit Album</a>
-    <form action="<%= album_url %>" method="post">
-        <%= auth_token %>
-       <input type="hidden" name="_method" value="DELETE">
-       <input class="button" type="submit" value="Destroy Album">
-    </form>
+    <% if current_user.admin == true %>
+      <a class="button" href="<%= new_album_track_url(current_album) %>">New Track</a>
+      <a class="button" href="<%= edit_album_url %>">Edit Album</a>
+      <form action="<%= album_url %>" method="post">
+          <%= auth_token %>
+          <input type="hidden" name="_method" value="DELETE">
+          <input class="button" type="submit" value="Destroy Album">
+        </form>
+    <% end %>
     <a class="button" href="<%= band_url(current_album.band) %>">Back to: <%= h(current_album.band.name[0..40]) %><%= current_album.band.name.length >=40 ? "..." : "" %></a>
   </div>
 <% end %>
