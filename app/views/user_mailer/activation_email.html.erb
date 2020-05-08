@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Activate Your Account</title>
+  </head>
+  <body>
+    <h1>Hello <%= @user.email %></h1>
+    <p>Thank you for signing up, we are almost done, just need to verify your email
+    by clicking the link below, then the Musiq is all yours!</p>
+
+    <h3>Activation Link:</h3>
+    <a href="<%= activate_users_url %>?activation_token=<%= @user.activation_token %>">Click Me!</a>
+  </body>
+</html>

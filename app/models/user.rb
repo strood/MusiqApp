@@ -2,17 +2,20 @@
 #
 # Table name: users
 #
-#  id              :bigint           not null, primary key
-#  email           :string
-#  session_token   :string
-#  password_digest :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id               :bigint           not null, primary key
+#  email            :string
+#  session_token    :string
+#  password_digest  :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  activated        :boolean          default(FALSE), not null
+#  admin            :boolean          default(FALSE), not null
+#  activation_token :string           not null
 #
 class User < ApplicationRecord
   attr_reader :password
 
-  validates :email, :password_digest, presence: true
+  validates :email, :password_digest, :activation_token, presence: true
   validates :email, uniqueness: true
 
   validates :password, length: { minimum:6, allow_nil: true }
@@ -60,6 +63,10 @@ class User < ApplicationRecord
   end
 
   def self.generate_session_token
+    SecureRandom.urlsafe_base64(16)
+  end
+
+  def self.generate_activation_token
     SecureRandom.urlsafe_base64(16)
   end
 

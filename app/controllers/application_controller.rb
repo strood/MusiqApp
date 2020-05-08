@@ -41,6 +41,14 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_url unless current_user
   end
 
+  def require_user_activated!
+    redirect_to new_session_url unless current_user.activated == true
+  end
+
+  def require_user_admin!
+    redirect_to bands_url unless current_user.admin == true
+  end
+
   def login_user!(user)
     session[:session_token] = user.reset_session_token!
   end

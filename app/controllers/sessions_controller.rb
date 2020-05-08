@@ -17,8 +17,10 @@ class SessionsController < ApplicationController
     if user.nil?
       flash[:errors] = [ "Invalid Credentials, please try again!" ]
       render :new
+    elsif user.activated != true
+      flash[:errors] = ["Must activate account before loggin in!"]
+      render :new
     else
-
       # starts a session for user if found and pass matches above
       login_user!(user)
       # temp redirect for now

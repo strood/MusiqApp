@@ -1,0 +1,8 @@
+Activate Your Account
+
+Hello <%= @user.email %>
+Thank you for signing up, we are almost done, just need to verify your email
+by clicking the link below, then the Musiq is all yours!
+
+Activation Link:
+localhost:3000/users/activate?activation_token=<%= @user.activation_token %>
