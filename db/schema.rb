@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_05_07_221123) do
     t.string "name", null: false
     t.bigint "album_id"
     t.integer "ord", null: false
-    t.boolean "bonus", default: false, null: false
+    t.boolean "bonus", default: false
     t.text "lyrics"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
