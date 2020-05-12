@@ -6,7 +6,7 @@
 #  name       :string           not null
 #  album_id   :bigint
 #  ord        :integer          not null
-#  bonus      :boolean          default(FALSE), not null
+#  bonus      :boolean          default(FALSE)
 #  lyrics     :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
