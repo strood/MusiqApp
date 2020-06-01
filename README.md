@@ -1,24 +1,5 @@
-# README
+# README - Musiq App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Built on rails 5.2.3, with Postgresql database.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Music Database where users can track their favorite music info. 
