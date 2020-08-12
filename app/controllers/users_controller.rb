@@ -48,7 +48,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.activation_token = User.generate_activation_token
     @user.admin = false
-    @user.activated = false
+    # turn back to false, only true for demo
+    @user.activated = true
 
     if User.email_taken?(@user.email)
       flash[:errors] = ["Email taken, sign in, or try another."]
@@ -58,9 +59,9 @@ class UsersController < ApplicationController
       flash[:errors] = ["Invalid password, please try another - (Must be at least 6 characters)"]
       redirect_to new_user_url
     elsif @user.save!
-      email = UserMailer.activation_email(@user)
+      # email = UserMailer.activation_email(@user)
       # Could change when we send this, but will learn later
-      email.deliver_now
+      # email.deliver_now
       flash[:notice] = ["Welcome, #{ @user.email }, pelase confirm your email to log in"]
       redirect_to new_session_url
     else
