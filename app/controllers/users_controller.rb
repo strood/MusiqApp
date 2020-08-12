@@ -62,8 +62,9 @@ class UsersController < ApplicationController
       # email = UserMailer.activation_email(@user)
       # Could change when we send this, but will learn later
       # email.deliver_now
-      flash[:notice] = ["Welcome, #{ @user.email }, pelase confirm your email to log in"]
-      redirect_to new_session_url
+      flash[:notice] = ["Welcome, #{ @user.email }, pelase confirm your email to log in*Temp disabled*"]
+      login_user!(@user)
+      redirect_to bands_url
     else
       flash[:errors] = ["Invalid Credentials, pelase try again!"]
       redirect_to new_user_url
