@@ -4,4 +4,4 @@
  - [LIVE DEMO]
 
 ## Features
-  - Authentication/Login along with ActiveMailer signup validation email.
+  - Authentication/Login along with ActiveMailer signup validation email, however email validation disabled for live demo.
